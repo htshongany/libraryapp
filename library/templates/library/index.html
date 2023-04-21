@@ -4,7 +4,9 @@
 <h1>hello world!</h1>
 <ul>
 {% for book in books %}
+<a href="{% url 'library:book-detail' book.slug %}">
 	<li>{{book.title}} <img src="{{book.pdf_cover_image.url}}" width="100"></li>
+</a>
 {% endfor %}
 </ul>
 {% endblock %}

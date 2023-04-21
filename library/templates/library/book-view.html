@@ -1,0 +1,7 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>{{book.title}}</h2>
+<img src="{{book.pdf_cover_image.url}}" width="300">
+<div>{{book.description|safe}}</div>
+{% endblock %}
