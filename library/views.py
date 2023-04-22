@@ -16,3 +16,9 @@ def get_pdf_detail(request, slug):
     }
 
     return render(request,"library/book-view.html" ,context)
+
+def get_pdf_preview(request, slug):
+    context = {
+        "book": get_object_or_404(Book.objects.filter(published=True, slug=slug))
+    }
+    return render(request,"library/book-preview.html" ,context)

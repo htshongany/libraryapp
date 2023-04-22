@@ -2,6 +2,8 @@
 
 {% block content %}
 <h2>{{book.title}}</h2>
+<a href="{% url 'library:book-preview' book.slug %}">
 <img src="{{book.pdf_cover_image.url}}" width="300">
+</a>
 <div>{{book.description|safe}}</div>
 {% endblock %}
