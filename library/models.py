@@ -23,5 +23,20 @@ class Book(models.Model):
 	author = models.ForeignKey(User, on_delete=models.CASCADE)
 	category = models.ForeignKey(Category, on_delete=models.CASCADE)
 
+	@staticmethod
+	def add_preview_to_google_drive_link(link):
+		"""
+		add a preview at the end of the google drive link if it does not exist 
+		"""
+		link = link.split('/')
+		if link[-1] != "preview":
+			link[-1] = 'preview'
+		return "/".join(link)
+
+	def save(self, *args, **kwargs):
+		self.pdf_url = self.driver_preview(self.pdf_url)
+
+		super(Book, self).save(*args, **kwargs)
+
 	def __str__(self):
 		return self.title
