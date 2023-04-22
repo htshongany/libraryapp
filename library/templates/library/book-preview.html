@@ -1,5 +1,7 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h2>{{book.title}}</h2>
+<div>
+    <iframe class="pdf-preview" src="{{book.pdf_url}}" width="800" height="800"></iframe>
+</div>
 {% endblock %}
