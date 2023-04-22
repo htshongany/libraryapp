@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from ckeditor.fields import RichTextField
 
 # Create your models here.
 class Category(models.Model):
@@ -14,7 +15,7 @@ class Book(models.Model):
 	title = models.CharField(max_length=200, null=False)
 	slug = models.SlugField(max_length=200, unique=True)
 	published = models.BooleanField(default=False)
-	description = models.TextField(blank=True , null=True)
+	description = RichTextField(blank=True , null=True)
 	pub_date = models.DateField(auto_now_add=True)
 	update_date = models.DateField(auto_now=True)
 	pdf_cover_image = models.ImageField(upload_to ='cover-images', default='cover.jpg')
