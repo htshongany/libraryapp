@@ -35,7 +35,7 @@ class Book(models.Model):
 		return "/".join(link)
 
 	def save(self, *args, **kwargs):
-		self.pdf_url = self.driver_preview(self.pdf_url)
+		self.pdf_url = self.add_preview_to_google_drive_link(self.pdf_url)
 
 		super(Book, self).save(*args, **kwargs)
 
