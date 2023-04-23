@@ -10,6 +10,13 @@
     <title>library-app</title>
 </head>
 <body>
+    <nav>
+        <form method="POST" action="{% url 'library:search-results' %}">
+            <input type="search" name='search' placeholder="Search..">
+            <button type="submit">submit</button>
+            {% csrf_token %}
+        </form>
+    </nav>
     {% block content %}
     {% endblock %}
 </body>
