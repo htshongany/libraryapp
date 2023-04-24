@@ -1,8 +1,13 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h1>hello ...</h1>
-
-{{object_list}}
-
+<ul>
+    {% if object_list.exists%}
+        {% for book in object_list %}
+            <li><a href="{% url 'library:book-detail' book.slug %}">{{book.title}}</a></li>
+        {% endfor %}
+    {% else %}
+        <li>book not found...</li>
+    {% endif %}
+</ul>
 {% endblock %}

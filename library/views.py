@@ -1,13 +1,21 @@
 from django.shortcuts import render , get_object_or_404
+from django.core.paginator import Paginator
 from .models import Book
+
 
 # Create your views here.
 
 def index(request):
+    object_list = Book.objects.filter(published=True)
+    paginator = Paginator(object_list, 3)
+    page_number = request.GET.get('page', 1)
+    current_page = paginator.get_page(page_number)
     context = {
-        "books":Book.objects.filter(published=True),
+        'object_list': current_page.object_list,
+        'paginator': paginator,
+        'page_number': page_number,
     }
-    return render(request , 'library/index.html', context)
+    return render(request, 'library/index.html', context)
 
 
 def get_pdf_detail(request, slug):
@@ -31,12 +39,10 @@ def search_by_title(request):
     context = {
         'object_list':object_list,
         }
-    
     return render(request,"library/search-results.html" ,context)
 
 def _search_book(request):
     if request.method == "POST":
-        # print(request.method.POST['search'])
         search = request.POST.get("search")
         object_list = Book.objects.filter(title__contains=search , published=True)
     return object_list

@@ -3,10 +3,23 @@
 {% block content %}
 <h1>hello world!</h1>
 <ul>
-{% for book in books %}
-<a href="{% url 'library:book-detail' book.slug %}">
-	<li>{{book.title}} <img src="{{book.pdf_cover_image.url}}" width="100"></li>
-</a>
+{% for book in object_list %}
+
+	<li>{{book.title}}<a href="{% url 'library:book-detail' book.slug %}"><img src="{{book.pdf_cover_image.url}}" width="100"></a></li>
+
 {% endfor %}
 </ul>
+
+{% if paginator.num_pages > 1 %}
+    <ul class="pagination">
+        {% for page in paginator.page_range %}
+            {% if page == paginator.page_number %}
+                <li class="active"><a href="#">{{ page }}</a></li>
+            {% else %}
+                <li><a href="?page={{ page }}">{{ page }}</a></li>
+            {% endif %}
+        {% endfor %}
+    </ul>
+{% endif %}
+
 {% endblock %}
