@@ -1,11 +1,12 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h1>hello world!</h1>
+<h2>Books : </h2>
 <ul>
 {% for book in object_list %}
 
 	<li>{{book.title}}<a href="{% url 'library:book-detail' book.slug %}"><img src="{{book.pdf_cover_image.url}}" width="100"></a></li>
+    <li><a href="{% url 'library:book-category' book.category %}">similaire</a></li>
 
 {% endfor %}
 </ul>

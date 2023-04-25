@@ -1,6 +1,6 @@
 from django.shortcuts import render , get_object_or_404
 from django.core.paginator import Paginator
-from .models import Book
+from .models import Book , Category
 
 
 # Create your views here.
@@ -31,8 +31,14 @@ def get_pdf_preview(request, slug):
     }
     return render(request,"library/book-preview.html" ,context)
 
+def get_pdf_by_category(request, cat_slug):
+    category = get_object_or_404(Category.objects.filter(slug=cat_slug))
+    books = Book.objects.filter(category=category, published=True)
 
-
+    context = {
+        'object_list': books,
+    }
+    return render(request, 'library/book-category.html', context)
 
 def search_by_title(request):
     object_list = _search_book(request)
