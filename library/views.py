@@ -14,6 +14,7 @@ def index(request):
         'object_list': current_page.object_list,
         'paginator': paginator,
         'page_number': page_number,
+        'page_obj':current_page,
     }
     return render(request, 'library/index.html', context)
 

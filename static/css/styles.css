@@ -47,6 +47,15 @@ table {
 	border-spacing: 0;
 }
 
+*{
+	list-style: none;
+	text-decoration: none;
+}
+
+a{
+	 color: #ef798a;
+}
+
 body{
 	background: #f9f5e3;
 	font-family: "JetBrains Mono";
@@ -93,8 +102,65 @@ body{
 	color: #7e2e84;
 	font-weight: bold;
 }
+/* --------------------------- */
 
 .wrapper {
 	width: 80%;
 	margin: 10px auto;
 }
+
+.container{
+
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: space-around;
+}
+
+
+.right{
+	width: 300px;
+	height: 70vh;
+}
+
+.left{
+	width: 900px;
+	height: 70vh;
+}
+/* --------------- */
+.text-center{
+	text-align: center;
+}
+.pdf-preview{
+	height: 90vh;
+}
+
+/* ----------------- */
+
+/* pagination */
+
+.pagination {
+	list-style-type: none;
+	/* margin: 5px; */
+	padding: 5px;
+  }
+  
+.pagination li {
+	display: inline-block;
+	margin-right: 4px;
+  }
+  
+.pagination li a {
+	background-color: #d14081;
+	padding: 2px 10px;
+	text-decoration: none;
+	color: #f9f5e3;
+  }  
+  
+.active{
+	background-color: #333;
+  }
+  
+.pagination li a:hover {
+	background-color: #732a78;
+  }

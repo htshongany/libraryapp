@@ -1,15 +1,20 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h2>{{book.title}}</h2>
-<div id="preview">
-    <a
-    hx-get="{% url 'library:book-preview' book.slug %}"
-    hx-target="#preview"
-    href=''
-    >
-    <img src="{{book.pdf_cover_image.url}}" width="300">
-    </a>
-    <div>{{book.description|safe}}</div>
+
+<div class="container" id="preview">
+    <div class="right">
+        <h2 class="text-center">{{book.title}}</h2>
+        <hr>
+        <a
+        hx-get="{% url 'library:book-preview' book.slug %}"
+        hx-target="#preview"
+        href=''
+        >
+        <img src="{{book.pdf_cover_image.url}}" width="300">
+        </a>
+    </div>
+    
+    <div class="left">{{book.description|safe}}</div>
 </div>
 {% endblock %}
