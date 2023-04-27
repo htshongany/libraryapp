@@ -1,15 +1,27 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h2>Books : </h2>
-<ul>
+
+<ul class="pdf-container">
 {% for book in object_list %}
 
-	<li>{{book.title}}<a href="{% url 'library:book-detail' book.slug %}"><img src="{{book.pdf_cover_image.url}}" width="100"></a></li>
-    <li><a href="{% url 'library:book-category' book.category %}">similaire</a></li>
+	<li>
+        <h2 class="text-center">{{book.title}}</h2>
+        
+        <a href="{% url 'library:book-detail' book.slug %}">
+            <img src="{{book.pdf_cover_image.url}}" alt="book cover image">
+        </a>
+        <a href="{% url 'library:book-category' book.category %}">
+            similaire
+        </a>
+
+    </li>
+
 
 {% endfor %}
 </ul>
+
+<hr class="hr-center">
 
 {% if paginator.num_pages > 1 %}
 <ul class="pagination">

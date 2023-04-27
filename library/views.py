@@ -7,7 +7,7 @@ from .models import Book , Category
 
 def index(request):
     object_list = Book.objects.filter(published=True)
-    paginator = Paginator(object_list, 3)
+    paginator = Paginator(object_list, 6)
     page_number = request.GET.get('page', 1)
     current_page = paginator.get_page(page_number)
     context = {

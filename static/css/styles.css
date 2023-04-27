@@ -126,6 +126,7 @@ body{
 .left{
 	width: 900px;
 	height: 70vh;
+	margin-top: 100px;
 }
 /* --------------- */
 .text-center{
@@ -141,8 +142,9 @@ body{
 
 .pagination {
 	list-style-type: none;
-	/* margin: 5px; */
+	margin: 5px;
 	padding: 5px;
+	text-align: center;
   }
   
 .pagination li {
@@ -154,6 +156,7 @@ body{
 	background-color: #d14081;
 	padding: 2px 10px;
 	text-decoration: none;
+	font-size: 12px;
 	color: #f9f5e3;
   }  
   
@@ -164,3 +167,39 @@ body{
 .pagination li a:hover {
 	background-color: #732a78;
   }
+/*----------------------*/
+.pdf-container{
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	flex-shrink: initial;
+	justify-content: space-between;
+}
+
+.pdf-container li {
+	width: 400px;
+	margin-top:5px;
+	margin-bottom: 5px;
+	display: flex;
+	flex-direction: column;
+}
+.pdf-container li h2 {
+	font-size: 12px;
+	width: 100px;
+	margin: 0 auto;
+}
+.pdf-container li img{
+	width:100px;
+}
+.pdf-container li a {
+	text-align: center;
+
+}
+
+hr{
+	border: 1px solid #ccf5ac;
+}
+.hr-center{
+	width: 50%;
+	text-align: center;
+}

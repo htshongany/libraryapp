@@ -2,7 +2,7 @@
 
 {% block content %}
 
-<div class="container" id="preview">
+<div class="container" >
     <div class="right">
         <h2 class="text-center">{{book.title}}</h2>
         <hr>
@@ -15,6 +15,7 @@
         </a>
     </div>
     
-    <div class="left">{{book.description|safe}}</div>
+    <div class="left" id="preview">{{book.description|safe}}<hr class="hr-center"></div>
+    
 </div>
 {% endblock %}
