@@ -49,6 +49,7 @@ def search_by_title(request):
     return render(request,"library/search-results.html" ,context)
 
 def _search_book(request):
+    object_list = []
     if request.method == "POST":
         search = request.POST.get("search")
         object_list = Book.objects.filter(title__contains=search , published=True)
