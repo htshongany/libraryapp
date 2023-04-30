@@ -6,7 +6,7 @@ from .models import Book , Category
 # Create your views here.
 
 def index(request):
-    object_list = Book.objects.filter(published=True)
+    object_list = Book.objects.filter(published=True).order_by('-update_date')
     paginator = Paginator(object_list, 6)
     page_number = request.GET.get('page', 1)
     current_page = paginator.get_page(page_number)
@@ -34,7 +34,7 @@ def get_pdf_preview(request, slug):
 
 def get_pdf_by_category(request, cat_slug):
     category = get_object_or_404(Category.objects.filter(slug=cat_slug))
-    books = Book.objects.filter(category=category, published=True)
+    books = Book.objects.filter(category=category, published=True).order_by('-update_date')
 
     context = {
         'object_list': books,
@@ -49,6 +49,7 @@ def search_by_title(request):
     return render(request,"library/search-results.html" ,context)
 
 def _search_book(request):
+    object_list = []
     if request.method == "POST":
         search = request.POST.get("search")
         object_list = Book.objects.filter(title__contains=search , published=True)
