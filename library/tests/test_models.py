@@ -2,13 +2,14 @@ from django.test import TestCase
 from django.contrib.auth.models import User
 from library.models import Book , Category
 from django.conf import settings
+from os.path import join
 
 
 
 class TestModel(TestCase):
 
     def setUp(self):
-        self.book_cover_image_file_path = str(settings.MEDIA_ROOT)+'\cover.jpg'
+        self.book_cover_image_file_path = join(str(settings.MEDIA_ROOT), 'cover.jpg')
         self.pdf_url = "https://drive.google.com/file/d/1mHfxyE9AJjTTQujyV-SunANJlrrBG7wx/preview"
 
         self.book_category = Category.objects.create(
