@@ -204,3 +204,65 @@ hr{
 	width: 50%;
 	text-align: center;
 }
+
+/* messages */
+
+.messages {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+.messages li {
+	padding: 10px;
+	text-align: center;
+}
+  
+.messages .success {
+	background-color: #dff0d8;
+	color: #3c763d;
+}
+  
+.messages .info {
+	background-color: #d9edf7;
+	color: #31708f;
+}
+  
+.messages .warning {
+	background-color: #fcf8e3;
+	color: #8a6d3b;
+}
+  
+.messages .error {
+	background-color: #eabdba;
+	color: #f44336;
+}
+
+/* --------------------------------- */
+.form-content{
+	/* width: 50%; */
+	margin: 20vh auto;
+}
+.form-content form {
+	/* width: 50%; */
+	/* margin: 0 auto; */
+	display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+	justify-content: space-around;
+}
+.form-content form input {
+	padding: 10px;
+	margin: 5px;
+	border:0;
+	outline: 0;
+}
+.form-content form input:hover{
+	border: 0;
+	outline: 0;
+	transition: 0.9s;
+}
+.form-content form .btn{
+	background-color: #ccf5ac;
+	color: #f9f5e3 ;
+	cursor: pointer;
+}
